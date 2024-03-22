@@ -9,8 +9,8 @@ jobs:
     executor:
       name: windows/default
     steps:
-       - add_ssh_keys:
-          fingerprints:
+      - add_ssh_keys:
+          -fingerprints:
             - "SHA256:n9SxbteL3jSqBs+o1OQE1yPNZZUp0KTfhLX6j5XWaaY"
       - checkout
       - run: pwd
