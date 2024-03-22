@@ -1,10 +1,11 @@
 version: 2.1
+
 workflows:
-  testing:
+  build-workflow:
     jobs:
-      - runner-test
+      - runner
 jobs:
-  runner-test:
+  runner:
     machine: true
     resource_class: thredd/test-project   
     steps:
