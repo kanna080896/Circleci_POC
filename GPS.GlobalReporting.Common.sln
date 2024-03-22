@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPS.GlobalReporting.Common", "GPS.GlobalReporting.Common\GPS.GlobalReporting.Common.csproj", "{1914C3D3-A848-43A8-BC73-A1123C99E963}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPS.GlobalReporting.Common.IntegrationTests", "GPS.GlobalReporting.Common.IntegrationTests\GPS.GlobalReporting.Common.IntegrationTests.csproj", "{D187C279-6490-43B4-86E6-AD0DE8EB689C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPS.GlobalReporting.Common.UnitTests", "GPS.GlobalReporting.Common.UnitTests\GPS.GlobalReporting.Common.UnitTests.csproj", "{C39374D6-A56E-421A-A816-48502D3227DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1914C3D3-A848-43A8-BC73-A1123C99E963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1914C3D3-A848-43A8-BC73-A1123C99E963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1914C3D3-A848-43A8-BC73-A1123C99E963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1914C3D3-A848-43A8-BC73-A1123C99E963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D187C279-6490-43B4-86E6-AD0DE8EB689C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D187C279-6490-43B4-86E6-AD0DE8EB689C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D187C279-6490-43B4-86E6-AD0DE8EB689C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D187C279-6490-43B4-86E6-AD0DE8EB689C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C39374D6-A56E-421A-A816-48502D3227DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C39374D6-A56E-421A-A816-48502D3227DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C39374D6-A56E-421A-A816-48502D3227DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C39374D6-A56E-421A-A816-48502D3227DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
