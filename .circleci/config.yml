@@ -7,7 +7,7 @@ workflows:
 jobs:
   runner:
     machine: true
-    resource_class: thredd/test-project   
+    resource_class: thredd/poc-project 
     steps:
       - add_ssh_keys:
           -fingerprints:
