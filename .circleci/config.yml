@@ -11,7 +11,7 @@ jobs:
     steps:
       - add_ssh_keys:
           -fingerprints:
-            - "SHA256:n9SxbteL3jSqBs+o1OQE1yPNZZUp0KTfhLX6j5XWaaY"
+            - "SHA256:tuhm7w+C6SZhyErENoOb0/uSroQ7jmm+sVXkkdI5ffg"
       - checkout
       - run: pwd
       - run:
