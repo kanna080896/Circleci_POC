@@ -1,17 +1,16 @@
 version: 2.1
-
+workflows:
+  testing:
+    jobs:
+      - runner-test
 jobs:
-runner-test:
+  runner-test:
     machine: true
-    resource_class: thredd/test-project
-  build:
-    description: Build application with Release configuration
-    executor:
-      name: windows/default
+    resource_class: thredd/test-project   
     steps:
       - add_ssh_keys:
           -fingerprints:
-            - "SHA256:tuhm7w+C6SZhyErENoOb0/uSroQ7jmm+sVXkkdI5ffg"
+            - "SHA256:n9SxbteL3jSqBs+o1OQE1yPNZZUp0KTfhLX6j5XWaaY"
       - checkout
       - run: pwd
       - run:
