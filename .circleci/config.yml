@@ -1,9 +1,9 @@
 version: 2.1
 
-
-orbs:
-  windows: circleci/windows@2.2.0
 jobs:
+runner-test:
+    machine: true
+    resource_class: thredd/test-project
   build:
     description: Build application with Release configuration
     executor:
