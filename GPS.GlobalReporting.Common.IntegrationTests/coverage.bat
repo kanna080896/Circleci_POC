@@ -1,0 +1,3 @@
+"%homedrive%%homepath%\.nuget\packages\opencover\4.7.1221\tools\OpenCover.Console.exe" -target:"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" -targetargs:"bin\Debug\net6.0\GPS.GlobalReporting.Common.IntegrationTests.dll" -output:"Coverage.xml" -register:user -filter:"+[GPS.GlobalReporting.Common]GPS.GlobalReporting.Common.*" -excludebyattribute:"*ExcludeFromCodeCoverage*"
+"%homedrive%%homepath%\.nuget\packages\reportgenerator\5.1.3\tools\net6.0\ReportGenerator.exe" -reports:"Coverage.xml" -targetdir:"CoverageReports"
+"CoverageReports\index.html"

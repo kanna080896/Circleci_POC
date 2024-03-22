@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+           id="Balances">
+    <xs:complexType name="CARD" mixed="true">
+        <xs:sequence>
+            <xs:element name="PAN" minOccurs="1" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="15"/>
+                        <xs:maxLength value="19"/>
+                        <xs:pattern value="^\d+$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="VIRTUAL" minOccurs="1" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Y"/>
+                        <xs:enumeration value="N"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="PRIMARY" minOccurs="1" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Y"/>
+                        <xs:enumeration value="N"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="CRDPRODUCT" minOccurs="1" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="4"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="PROGRAMID" minOccurs="1" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="6"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="CUSTCODE" minOccurs="1" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="8"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="STATCODE" type="STATCODE" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="EXPDATE" minOccurs="1" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10"/>
+                        <xs:pattern value="^(20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="GPSEXPDATE" minOccurs="0" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10"/>
+                        <xs:pattern value="^$|^(20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="CRDACCNO" type="ACCNO" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="PRIMARYTOKEN" minOccurs="0" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="15"/>
+                        <xs:maxLength value="19"/>
+                        <xs:pattern value="^\d+$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="CRDCURRCODE" type="CRDCURRCODE" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="LINKEDTOKEN" type="xs:decimal" minOccurs="0" maxOccurs="1" nillable="false"/>
+            <xs:element name="PRODUCTID" minOccurs="0" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="8"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="LASTUPDATED" minOccurs="1" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value=""/>
+                        <xs:maxLength value="14"/>
+                        <xs:pattern
+                                value="([2-9]\d{3}((0[1-9]|1[012])(0[1-9]|1\d|2[0-8])|(0[13456789]|1[012])(29|30)|(0[13578]|1[02])31)|(([2-9]\d)(0[48]|[2468][048]|[13579][26])|(([2468][048]|[3579][26])00))0229)([0-1][0-9]|[2][0-3])([0-5][0-9])([0-5][0-9])"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ACCOUNT" mixed="true">
+        <xs:sequence>
+            <xs:element name="ACCNO" type="ACCNO" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="CURRCODE" type="CRDCURRCODE" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="ACCTYPE" minOccurs="1" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="00"/>
+                        <xs:enumeration value="01"/>
+                        <xs:enumeration value="02"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="SORTCODE" type="SORTCODE" minOccurs="0" maxOccurs="1" nillable="false"/>
+            <xs:element name="BANKACC" type="BANKACC" minOccurs="0" maxOccurs="1" nillable="false"/>
+            <xs:element name="FEEBAND" minOccurs="0" maxOccurs="1" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="PAYMENT" type="PAYMENT" minOccurs="0" maxOccurs="1" nillable="false"/>
+            <xs:element name="FINAMT" type="xs:decimal" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="BLKAMT" type="xs:decimal" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="AMTAVL" type="xs:decimal" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="LINKEDTOKEN" type="xs:decimal" minOccurs="0" maxOccurs="1" nillable="false"/>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="CARD" type="CARD"/>
+            </xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SCHEME" mixed="true">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="ACCOUNT" type="ACCOUNT"/>
+        </xs:sequence>
+        <xs:attribute name="ID" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="3"/>
+                    <xs:pattern value="^(([A-Za-z0-9]|\s){3})$"/>
+
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:simpleType name="ACCNO">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="28"/>
+        </xs:restriction>
+
+    </xs:simpleType>
+    <xs:simpleType name="STATCODE">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="00"/>
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+            <xs:enumeration value="04"/>
+            <xs:enumeration value="05"/>
+            <xs:enumeration value="06"/>
+            <xs:enumeration value="08"/>
+            <xs:enumeration value="10"/>
+            <xs:enumeration value="12"/>
+            <xs:enumeration value="13"/>
+            <xs:enumeration value="14"/>
+            <xs:enumeration value="15"/>
+            <xs:enumeration value="17"/>
+            <xs:enumeration value="30"/>
+            <xs:enumeration value="31"/>
+            <xs:enumeration value="32"/>
+            <xs:enumeration value="33"/>
+            <xs:enumeration value="36"/>
+            <xs:enumeration value="37"/>
+            <xs:enumeration value="38"/>
+            <xs:enumeration value="41"/>
+            <xs:enumeration value="43"/>
+            <xs:enumeration value="46"/>
+            <xs:enumeration value="51"/>
+            <xs:enumeration value="54"/>
+            <xs:enumeration value="55"/>
+            <xs:enumeration value="57"/>
+            <xs:enumeration value="58"/>
+            <xs:enumeration value="59"/>
+            <xs:enumeration value="61"/>
+            <xs:enumeration value="62"/>
+            <xs:enumeration value="63"/>
+            <xs:enumeration value="64"/>
+            <xs:enumeration value="65"/>
+            <xs:enumeration value="66"/>
+            <xs:enumeration value="67"/>
+            <xs:enumeration value="68"/>
+            <xs:enumeration value="6P"/>
+            <xs:enumeration value="70"/>
+            <xs:enumeration value="71"/>
+            <xs:enumeration value="75"/>
+            <xs:enumeration value="76"/>
+            <xs:enumeration value="77"/>
+            <xs:enumeration value="78"/>
+            <xs:enumeration value="79"/>
+            <xs:enumeration value="80"/>
+            <xs:enumeration value="81"/>
+            <xs:enumeration value="82"/>
+            <xs:enumeration value="83"/>
+            <xs:enumeration value="85"/>
+            <xs:enumeration value="86"/>
+            <xs:enumeration value="87"/>
+            <xs:enumeration value="88"/>
+            <xs:enumeration value="89"/>
+            <xs:enumeration value="90"/>
+            <xs:enumeration value="91"/>
+            <xs:enumeration value="92"/>
+            <xs:enumeration value="93"/>
+            <xs:enumeration value="94"/>
+            <xs:enumeration value="95"/>
+            <xs:enumeration value="96"/>
+            <xs:enumeration value="98"/>
+            <xs:enumeration value="99"/>
+            <xs:enumeration value="C0"/>
+            <xs:enumeration value="C1"/>
+            <xs:enumeration value="N0"/>
+            <xs:enumeration value="N7"/>
+            <xs:enumeration value="P5"/>
+            <xs:enumeration value="P6"/>
+            <xs:enumeration value="G1"/>
+            <xs:enumeration value="G2"/>
+            <xs:enumeration value="G3"/>
+            <xs:enumeration value="G4"/>
+            <xs:enumeration value="G5"/>
+            <xs:enumeration value="G6"/>
+            <xs:enumeration value="G7"/>
+            <xs:enumeration value="G8"/>
+            <xs:enumeration value="G9"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CRDCURRCODE">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+            <xs:enumeration value="AED"/>
+            <xs:enumeration value="AFN"/>
+            <xs:enumeration value="ALL"/>
+            <xs:enumeration value="AMD"/>
+            <xs:enumeration value="ANG"/>
+            <xs:enumeration value="AOA"/>
+            <xs:enumeration value="ARS"/>
+            <xs:enumeration value="AUD"/>
+            <xs:enumeration value="AWG"/>
+            <xs:enumeration value="AZN"/>
+            <xs:enumeration value="BAM"/>
+            <xs:enumeration value="BBD"/>
+            <xs:enumeration value="BDT"/>
+            <xs:enumeration value="BGN"/>
+            <xs:enumeration value="BHD"/>
+            <xs:enumeration value="BIF"/>
+            <xs:enumeration value="BMD"/>
+            <xs:enumeration value="BND"/>
+            <xs:enumeration value="BOB"/>
+            <xs:enumeration value="BOV"/>
+            <xs:enumeration value="BRL"/>
+            <xs:enumeration value="BSD"/>
+            <xs:enumeration value="BTN"/>
+            <xs:enumeration value="BWP"/>
+            <xs:enumeration value="BYR"/>
+            <xs:enumeration value="BZD"/>
+            <xs:enumeration value="CAD"/>
+            <xs:enumeration value="CDF"/>
+            <xs:enumeration value="CHE"/>
+            <xs:enumeration value="CHF"/>
+            <xs:enumeration value="CHW"/>
+            <xs:enumeration value="CLF"/>
+            <xs:enumeration value="CLP"/>
+            <xs:enumeration value="CNY"/>
+            <xs:enumeration value="COP"/>
+            <xs:enumeration value="COU"/>
+            <xs:enumeration value="CRC"/>
+            <xs:enumeration value="CSD"/>
+            <xs:enumeration value="CUC"/>
+            <xs:enumeration value="CUP"/>
+            <xs:enumeration value="CVE"/>
+            <xs:enumeration value="CYP"/>
+            <xs:enumeration value="CZK"/>
+            <xs:enumeration value="DJF"/>
+            <xs:enumeration value="DKK"/>
+            <xs:enumeration value="DOP"/>
+            <xs:enumeration value="DZD"/>
+            <xs:enumeration value="EEK"/>
+            <xs:enumeration value="EGP"/>
+            <xs:enumeration value="ERN"/>
+            <xs:enumeration value="ETB"/>
+            <xs:enumeration value="EUR"/>
+            <xs:enumeration value="FJD"/>
+            <xs:enumeration value="FKP"/>
+            <xs:enumeration value="GBP"/>
+            <xs:enumeration value="GEL"/>
+            <xs:enumeration value="GHC"/>
+            <xs:enumeration value="GHS"/>
+            <xs:enumeration value="GIP"/>
+            <xs:enumeration value="GMD"/>
+            <xs:enumeration value="GNF"/>
+            <xs:enumeration value="GTQ"/>
+            <xs:enumeration value="GWP"/>
+            <xs:enumeration value="GYD"/>
+            <xs:enumeration value="HKD"/>
+            <xs:enumeration value="HNL"/>
+            <xs:enumeration value="HRK"/>
+            <xs:enumeration value="HTG"/>
+            <xs:enumeration value="HUF"/>
+            <xs:enumeration value="IDR"/>
+            <xs:enumeration value="ILS"/>
+            <xs:enumeration value="INR"/>
+            <xs:enumeration value="IQD"/>
+            <xs:enumeration value="IRR"/>
+            <xs:enumeration value="ISK"/>
+            <xs:enumeration value="JMD"/>
+            <xs:enumeration value="JOD"/>
+            <xs:enumeration value="JPY"/>
+            <xs:enumeration value="KES"/>
+            <xs:enumeration value="KGS"/>
+            <xs:enumeration value="KHR"/>
+            <xs:enumeration value="KMF"/>
+            <xs:enumeration value="KPW"/>
+            <xs:enumeration value="KRW"/>
+            <xs:enumeration value="KWD"/>
+            <xs:enumeration value="KYD"/>
+            <xs:enumeration value="KZT"/>
+            <xs:enumeration value="LAK"/>
+            <xs:enumeration value="LBP"/>
+            <xs:enumeration value="LKR"/>
+            <xs:enumeration value="LRD"/>
+            <xs:enumeration value="LSL"/>
+            <xs:enumeration value="LTL"/>
+            <xs:enumeration value="LVL"/>
+            <xs:enumeration value="LYD"/>
+            <xs:enumeration value="MAD"/>
+            <xs:enumeration value="MDL"/>
+            <xs:enumeration value="MGA"/>
+            <xs:enumeration value="MKD"/>
+            <xs:enumeration value="MMK"/>
+            <xs:enumeration value="MNT"/>
+            <xs:enumeration value="MOP"/>
+            <xs:enumeration value="MRO"/>
+            <xs:enumeration value="MTL"/>
+            <xs:enumeration value="MUR"/>
+            <xs:enumeration value="MVR"/>
+            <xs:enumeration value="MWK"/>
+            <xs:enumeration value="MXN"/>
+            <xs:enumeration value="MXV"/>
+            <xs:enumeration value="MYR"/>
+            <xs:enumeration value="MZM"/>
+            <xs:enumeration value="MZN"/>
+            <xs:enumeration value="NAD"/>
+            <xs:enumeration value="NGN"/>
+            <xs:enumeration value="NIO"/>
+            <xs:enumeration value="NOK"/>
+            <xs:enumeration value="NPR"/>
+            <xs:enumeration value="NZD"/>
+            <xs:enumeration value="OMR"/>
+            <xs:enumeration value="PAB"/>
+            <xs:enumeration value="PEN"/>
+            <xs:enumeration value="PGK"/>
+            <xs:enumeration value="PHP"/>
+            <xs:enumeration value="PKR"/>
+            <xs:enumeration value="PLN"/>
+            <xs:enumeration value="PYG"/>
+            <xs:enumeration value="QAR"/>
+            <xs:enumeration value="RON"/>
+            <xs:enumeration value="RSD"/>
+            <xs:enumeration value="RUB"/>
+            <xs:enumeration value="RWF"/>
+            <xs:enumeration value="SAR"/>
+            <xs:enumeration value="SBD"/>
+            <xs:enumeration value="SCR"/>
+            <xs:enumeration value="SDG"/>
+            <xs:enumeration value="SEK"/>
+            <xs:enumeration value="SGD"/>
+            <xs:enumeration value="SHP"/>
+            <xs:enumeration value="SKK"/>
+            <xs:enumeration value="SLE"/>
+            <xs:enumeration value="SLL"/>
+            <xs:enumeration value="SOS"/>
+            <xs:enumeration value="SRD"/>
+            <xs:enumeration value="STD"/>
+            <xs:enumeration value="SVC"/>
+            <xs:enumeration value="SYP"/>
+            <xs:enumeration value="SZL"/>
+            <xs:enumeration value="THB"/>
+            <xs:enumeration value="TJS"/>
+            <xs:enumeration value="TMT"/>
+            <xs:enumeration value="TND"/>
+            <xs:enumeration value="TOP"/>
+            <xs:enumeration value="TRY"/>
+            <xs:enumeration value="TTD"/>
+            <xs:enumeration value="TWD"/>
+            <xs:enumeration value="TZS"/>
+            <xs:enumeration value="UAH"/>
+            <xs:enumeration value="UGX"/>
+            <xs:enumeration value="USD"/>
+            <xs:enumeration value="UYI"/>
+            <xs:enumeration value="UYU"/>
+            <xs:enumeration value="UZS"/>
+            <xs:enumeration value="VEF"/>
+            <xs:enumeration value="VND"/>
+            <xs:enumeration value="VUV"/>
+            <xs:enumeration value="WST"/>
+            <xs:enumeration value="XAF"/>
+            <xs:enumeration value="XCD"/>
+            <xs:enumeration value="XOF"/>
+            <xs:enumeration value="XPF"/>
+            <xs:enumeration value="YER"/>
+            <xs:enumeration value="ZAR"/>
+            <xs:enumeration value="ZMK"/>
+            <xs:enumeration value="ZWD"/>
+            <xs:enumeration value="ZWL"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="SORTCODE">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+
+    </xs:simpleType>
+    <xs:simpleType name="BANKACC">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PAYMENT">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+            <xs:pattern value="(R0|R1|R2|R5)?(P0|P1|P2|P5)?"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="SCHEME" type="SCHEME"/>
+</xs:schema>
