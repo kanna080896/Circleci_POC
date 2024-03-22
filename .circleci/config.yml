@@ -9,6 +9,8 @@ jobs:
     executor:
       name: windows/default
     steps:
+       - add_ssh_keys:
+            fingerprints:
       - checkout
       - run: pwd
       - run:
