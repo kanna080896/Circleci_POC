@@ -1,0 +1,20 @@
+version: 2.1
+
+orbs:
+  windows: circleci/windows@2.2.0
+jobs:
+  build:
+    description: Build application with Release configuration
+    executor:
+      name: windows/default
+    steps:
+      - checkout
+      - run: pwd
+      - run:
+         command: dotnet build GPS.GlobalReporting.Common.sln -c Release /nodereuse:false
+      - run:
+         command: dotnet publish GPS.GlobalReporting.Common/GPS.GlobalReporting.Common.csproj -c Release -r win-x64 --self-contained true --output ./GPS.GlobalReporting.Common\\package  
+      - run:
+         command: dotnet pack GPS.GlobalReporting.Common\GPS.GlobalReporting.Common.csproj -c Release -o Packages
+      - run:
+         command: nuget push Packages\GPS.GlobalReporting.Common.2.0.5.nupkg -Source 'https://nexusdev.globalprocessing.net:8443/repository/nuget-dev/v3' -ApiKey 11dd5d17-b2f2-368f-bfa7-b6dec59099c2
